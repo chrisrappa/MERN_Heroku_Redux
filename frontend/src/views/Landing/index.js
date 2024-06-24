@@ -1,29 +1,54 @@
 import React, { useMemo } from 'react';
 import { 
   Grid, 
-  Typography, 
-  Box, 
-  AppBar,
-  Toolbar,
-  Button,
-  useMediaQuery
+  Typography,
+  useMediaQuery,
 } from '@mui/material';
 import { 
+  FeatureBox,
+  FeatureBoxContentGrid,
   FeatureContainerBox,
+  FeatureImageCard,
   FeaturePaper, 
+  FooterBox, 
+  FooterContentGridContainer, 
+  FooterLogoGridItem, 
+  HeaderTextGridItem, 
   HeroBox, 
   HeroGridContainer, 
-  HeroGridItem, 
-  HeroSplashTypography, 
-  HeroTypography, 
+  HeroHeaderContentText, 
+  IndividualScreenFeatureGridItem, 
   InnerBox, 
-  InnerVideoBox, 
-  TitleTypography, 
-  VideoBox 
+  MainPageBox, 
+  ScreenFeatureBoxInnerGridContainer, 
+  ScreenFeatureContentContainer, 
+  ScreenFeatureContentItem, 
+  ScreenFeatureHeaderTypography, 
+  SecondaryPageBox, 
+  SocialProofLogoCardMedium, 
+  SocialProofLogosContainer, 
+  StepContainer, 
 } from './styled';
-import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
-
+import AppBarMenu from './AppBarMenu';
+import { 
+  HeroHeaderText, 
+  featureBoxOne, 
+  featureBoxThree, 
+  featureBoxTwo, 
+  heroImageSrc, 
+  pageHeaderContent, 
+  screenFeatureOne, 
+  screenFeatureOneSrc, 
+  screenFeatureThree, 
+  screenFeatureThreeSrc, 
+  screenFeatureTwo, 
+  screenFeatureTwoSrc, 
+} from './consts';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import DryIcon from '@mui/icons-material/Dry';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Landing() {
 
@@ -39,134 +64,213 @@ function Landing() {
   }, [user, navigate]);
 
   return (
-    <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', height: '100dvh', maxHeight: '-webkit-fill-available', maxWidth: '-webkit-fill-available' }}>
-      <AppBar position="fixed" open={true}>
-        <Toolbar
-          sx={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'center',
-            width: '100%'
-          }}
-        >
-          <TitleTypography variant="h6" sx={{marginLeft: '1rem'}}>
-            Your Merch A.I.
-          </TitleTypography>
-          <Grid>
-            <Button 
-              color='secondary' 
-              sx={{marginRight: '1rem'}}
-              onClick={() => loginWithRedirect()}
-            >
-              Login
-            </Button>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-      {/* Rest of the page */}
-      <Box sx={{ flex: '1 1 auto', overflow: 'auto', display: 'flex', flexDirection: 'column' }}>
+    <MainPageBox>
+      <AppBarMenu isMobile={isMobile} navigate={navigate} loginWithRedirect={loginWithRedirect} />
+      <SecondaryPageBox>
         {/* First Section */}
         <HeroBox>
-          <HeroGridContainer>
-            <HeroSplashTypography variant='h1'>Your</HeroSplashTypography>
-            <HeroGridItem>
-              <HeroTypography variant='h4'>Custom A.I. Artwork</HeroTypography>
-              <HeroTypography variant='h4'>Logo</HeroTypography>
-              <HeroTypography variant='h4'>Merch</HeroTypography>
-              <HeroTypography color='secondary' variant='h3'>Delivered</HeroTypography>
-              <Button 
-                variant='contained' 
-                color='secondary'
-                onClick={() => loginWithRedirect({
-                    authorizationParams: {
-                      screen_hint: 'signup'
-                    }
-                  })
-                }
-                sx={{marginTop: '1rem'}}
-              >
-                Get Started
-              </Button>
-            </HeroGridItem>
+          <HeroGridContainer container>
+            <HeaderTextGridItem item sx={{width: '100%'}}>
+              <HeroHeaderText isMobile={isMobile} />
+              <HeroHeaderContentText color={'white'} variant='h6'>
+                {pageHeaderContent}
+              </HeroHeaderContentText>
+            </HeaderTextGridItem>
+            <Grid item sx={{flex: '2', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+              <img 
+                width={isMobile ? '360rem' : '275rem'} 
+                height={isMobile ? '700rem' : '600rem'} 
+                src={heroImageSrc} 
+                alt='hero image' 
+                style={{borderRadius: '1rem'}}
+              />
+            </Grid>
           </HeroGridContainer>
         </HeroBox>
         {/* Second Section */}
-        <FeatureContainerBox sx={{ }}>
+        <FeatureContainerBox id='howitworks'>
           <InnerBox>
-            <FeaturePaper 
-              elevation={3} 
-              sx={{
-                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://res.cloudinary.com/djrbfvpit/image/upload/v1706340716/AIGearSkin/Internal%20Images/Screenshot_2024-01-26_at_11.31.31_PM_dnsu5t.png")',
-                backgroundSize: 'cover', 
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-              }}
-            >
-              <Typography variant='h3' sx={{fontWeight: '500', textShadow:'0px 0px 10px #0b779f'}}>Create</Typography>
-            </FeaturePaper>
-          </InnerBox>
-          <InnerBox>
-            <FeaturePaper 
-              elevation={3} 
-              sx={{
-                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://res.cloudinary.com/djrbfvpit/image/upload/v1706341279/AIGearSkin/Internal%20Images/Screenshot_2024-01-26_at_11.40.56_PM_fnllpo.png")',
-                backgroundSize: 'cover', 
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-              }}
-            >
-              <Typography variant='h3' sx={{fontWeight: '500', textShadow:'0px 0px 10px #0b779f'}}>Place</Typography>
-            </FeaturePaper>
-          </InnerBox>
-          <InnerBox>
-            <FeaturePaper 
-              elevation={3} 
-              sx={{
-                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://res.cloudinary.com/djrbfvpit/image/upload/v1706341757/AIGearSkin/Internal%20Images/Screenshot_2024-01-26_at_11.49.03_PM_wnjn6l.png")',
-                backgroundSize: 'cover', 
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-              }}
-            >
-              <Typography variant='h3' sx={{fontWeight: '500', textShadow:'0px 0px 10px #0b779f'}}>Fulfill</Typography>
+            <FeaturePaper elevation={10}>
+              <FeatureBoxContentGrid container>
+                <SocialProofLogosContainer container>
+                  <StepContainer elevation={0}>
+                    <Grid item sx={{padding: '1rem'}}>
+                      <Typography 
+                        sx={{
+                          fontWeight: '400', 
+                          color: '#ffffff',
+                          fontFamily: '"Edu VIC WA NT Beginner", cursive',
+                          fontSize: isMobile ? '2.5rem' : '3.5rem',
+                          textAlign: 'center',
+                        }}
+                      >
+                        {featureBoxOne.headerText}
+                      </Typography>
+                      <Typography 
+                        sx={{
+                          color: '#ffffff',
+                          textAlign: 'center',
+                          width: '100%',
+                          padding: isMobile && ('0 3rem')
+                        }}
+                      >
+                        {featureBoxOne.content}
+                      </Typography>
+                    </Grid>
+                    <SocialProofLogoCardMedium elevation={0}>
+                      <AutoAwesomeIcon sx={{color: 'white', height: '10rem', width: '10rem'}}/>
+                    </SocialProofLogoCardMedium>
+                  </StepContainer>
+                  <StepContainer elevation={0}>
+                    <Grid item sx={{padding: '1rem'}}>
+                      <Typography 
+                        sx={{
+                          fontWeight: '400', 
+                          color: '#ffffff',
+                          fontFamily: '"Edu VIC WA NT Beginner", cursive',
+                          fontSize: isMobile ? '2.5rem' : '3.5rem',
+                          textAlign: 'center',
+                        }}
+                      >
+                        {featureBoxTwo.headerText}
+                      </Typography>
+                      <Typography 
+                        sx={{
+                          color: '#ffffff',
+                          textAlign: 'center',
+                          width: '100%',
+                          padding: isMobile && ('0 3rem')
+                        }}
+                      >
+                        {featureBoxTwo.content}
+                      </Typography>
+                    </Grid>
+                    <SocialProofLogoCardMedium elevation={0}>
+                      <LocalShippingIcon sx={{color: 'white', height: '10rem', width: '10rem'}} />
+                    </SocialProofLogoCardMedium>
+                  </StepContainer>
+                  <StepContainer elevation={0}>
+                    <Grid item sx={{padding: '1rem'}}>
+                      <Typography 
+                        sx={{
+                          fontWeight: '400', 
+                          color: '#ffffff',
+                          fontFamily: '"Edu VIC WA NT Beginner", cursive',
+                          fontSize: isMobile ? '2.5rem' : '3.5rem',
+                          textAlign: 'center',
+                        }}
+                      >
+                        {featureBoxThree.headerText}
+                      </Typography>
+                      <Typography 
+                        sx={{
+                          color: '#ffffff',
+                          textAlign: 'center',
+                          width: '100%',
+                          padding: isMobile && ('0 3rem')
+                        }}
+                      >
+                        {featureBoxThree.content}
+                      </Typography>
+                    </Grid>
+                    <SocialProofLogoCardMedium elevation={0}>
+                      <DryIcon sx={{color: 'white', height: '10rem', width: '10rem'}} />
+                    </SocialProofLogoCardMedium>
+                  </StepContainer>
+                </SocialProofLogosContainer>
+              </FeatureBoxContentGrid>
             </FeaturePaper>
           </InnerBox>
         </FeatureContainerBox>
         {/* Third Section */}
-        <VideoBox>
-          <InnerBox sx={{ flex: '1', height: '100%', width: '100%'}}>
-            <Typography variant='h5' sx={{width: '100%', textAlign: 'center', padding: '0.25rem', marginTop: '1rem', marginBottom: '1rem'}}>
-              Watch the Step By Step Demo!
-            </Typography>
-          </InnerBox>
-          <InnerVideoBox>
-            <iframe 
-              width="100%" 
-              height="100%" 
-              style={{minHeight: !isMobile && '30rem'}}
-              src="https://www.youtube.com/embed/XcvJXPZZ16c?si=uO2QGRn-WGTSsrK9" title="YouTube video player" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen
-            />
-          </InnerVideoBox>
-        </VideoBox>
-        {/* Fifth Section */}
-        <Box 
-          sx={{ 
-            flex: '0.25 0.25 auto', 
-            display: 'flex', 
-            flexDirection: 'row' 
-          }}
-        >
-          <InnerBox sx={{ backgroundColor: '#0b779f', paddingTop: '1rem', paddingBottom: '1rem' }}>
-            <Typography sx={{ color: 'white' }}>
-              Your Merch A.I. by Vortex Media Consulting
-            </Typography>
-          </InnerBox>
-        </Box>
-      </Box>
-    </Box>
+        <FeatureBox id='features'>
+          <ScreenFeatureBoxInnerGridContainer container>
+            <IndividualScreenFeatureGridItem>
+              <ScreenFeatureContentContainer container>
+                <ScreenFeatureContentItem item>
+                  <ScreenFeatureHeaderTypography variant={isMobile ? 'h4' : 'h3'}>
+                    {screenFeatureOne.headerText}
+                  </ScreenFeatureHeaderTypography>
+                  <Typography variant='h6' sx={{textAlign: isMobile ? 'center' : 'left', color: 'white'}}>
+                    {screenFeatureOne.content}
+                  </Typography>
+                </ScreenFeatureContentItem>
+              </ScreenFeatureContentContainer>
+              <FeatureImageCard elevation={0} sx={{backgroundColor: 'transparent'}}>
+                <img 
+                  src={screenFeatureOneSrc} 
+                  alt='featureTwo' 
+                  style={{
+                    minHeight: '5rem', 
+                    height: '100%', 
+                    width: '20rem',
+                    borderRadius: '1rem'
+                  }}
+                />
+              </FeatureImageCard>
+            </IndividualScreenFeatureGridItem>
+            <IndividualScreenFeatureGridItem item sx={{ flexDirection: isMobile && 'column-reverse!important' }}>
+              <FeatureImageCard elevation={0} sx={{backgroundColor: 'transparent'}}>
+                <img 
+                  src={screenFeatureTwoSrc} 
+                  alt='featureTwo' 
+                  style={{
+                    minHeight: '5rem', 
+                    height: '100%', 
+                    width: '20rem',
+                    borderRadius: '1rem'
+                  }}
+                />
+              </FeatureImageCard>
+              <ScreenFeatureContentContainer container>
+                <ScreenFeatureContentItem item>
+                  <ScreenFeatureHeaderTypography variant={isMobile ? 'h4' : 'h3'}>
+                    {screenFeatureTwo.headerText}
+                  </ScreenFeatureHeaderTypography>
+                  <Typography variant='h6' sx={{textAlign: isMobile ? 'center' : 'left', color: 'white'}}>
+                    {screenFeatureTwo.content}
+                  </Typography>
+                </ScreenFeatureContentItem>
+              </ScreenFeatureContentContainer>
+            </IndividualScreenFeatureGridItem>
+            <IndividualScreenFeatureGridItem>
+              <ScreenFeatureContentContainer container>
+                <ScreenFeatureContentItem item>
+                  <ScreenFeatureHeaderTypography variant={isMobile ? 'h4' : 'h3'}>
+                    {screenFeatureThree.headerText}
+                  </ScreenFeatureHeaderTypography>
+                  <Typography variant='h6' sx={{textAlign: isMobile ? 'center' : 'left', color: 'white'}}>
+                    {screenFeatureThree.content}
+                  </Typography>
+                </ScreenFeatureContentItem>
+              </ScreenFeatureContentContainer>
+              <FeatureImageCard elevation={0} sx={{backgroundColor: 'transparent'}}> 
+                <img 
+                  src={screenFeatureThreeSrc} 
+                  alt='featureTwo' 
+                  style={{
+                    minHeight: '5rem', 
+                    height: '100%', 
+                    width: '20rem',
+                    borderRadius: '1rem'
+                  }}
+                />
+              </FeatureImageCard>
+            </IndividualScreenFeatureGridItem>
+          </ScreenFeatureBoxInnerGridContainer>
+        </FeatureBox>
+        {/* Footer */}
+        <FooterBox id='consult'>
+          <FooterContentGridContainer container>
+            <FooterLogoGridItem item>
+              <Typography variant='h5' sx={{color: 'white', marginLeft: '1rem', fontWeight: '500' }}>
+                Temp-Tat AI
+              </Typography>
+            </FooterLogoGridItem>
+          </FooterContentGridContainer>
+        </FooterBox>
+      </SecondaryPageBox>
+    </MainPageBox>
   )
 }
 

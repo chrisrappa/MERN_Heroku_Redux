@@ -12,15 +12,8 @@ import AppNavigation from './components/AppNavigation';
 import { CssBaseline } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Support from './views/Support';
-import V2Landing from './views/V2Landing';
+import Landing from './views/Landing';
 import Admin from './views/Admin';
-// import Mockup from './views/Mockup';
-// import Logo from './views/Logo';
-// import Placement from './views/Placement';
-// import YourProducts from './views/YourProducts';
-// import Catalog from './views/Catalog';
-
-
 
 function App() {
 
@@ -53,7 +46,7 @@ function App() {
       <AppContainer>
 			  <CssBaseline />
         <Routes>
-          <Route path = "/"  element = { <V2Landing /> } />
+          <Route path = "/"  element = { <Landing /> } />
 
           <Route element  =  { <PrivateRoutes /> }>
 
