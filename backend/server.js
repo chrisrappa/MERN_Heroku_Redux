@@ -3,14 +3,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import * as dotenv from 'dotenv';
 import daleRoute from './routes/daleRoute.js';
-import bigJpgUpscale from './routes/bigJpgUpscale.js';
 import artworkSaveRoute from './routes/artworkSaveRoute.js';
-import stripePaymentRoute from './routes/stripePaymentRoute.js';
-import printfulRoute from './routes/printfulRoute.js';
-import mediaModifierRoute from './routes/mediaModifierRoute.js';
 import userRoute from './routes/userRoute.js';
 import supportRoute from './routes/supportRoute.js';
-import shopifyRoute from './routes/shopifyRoute.js';
 import klaviyoRoute from './routes/klaviyoRoute.js';
 import adminRoute from './routes/adminRoute.js';
 import { fileURLToPath } from 'url';
@@ -61,14 +56,9 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.text({ limit: '200mb' }));
 
 app.use('/api/dale'         , daleRoute           );
-app.use('/api/bigJpgUpscale', bigJpgUpscale       );
 app.use('/api/artworkSave'  , artworkSaveRoute    );
-app.use('/api/stripe'       , stripePaymentRoute  );
-app.use('/api/printful'     , printfulRoute       );
-app.use('/api/mediaMod'     , mediaModifierRoute  );
 app.use('/api/support'      , supportRoute        );
 app.use('/api/user'         , userRoute           );
-app.use('/api/shopify'      , shopifyRoute        );
 app.use('/api/klaviyo'      , klaviyoRoute        );
 app.use('/api/admin'        , adminRoute        );
 

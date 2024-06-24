@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import sharp from 'sharp';
 import axios from 'axios';
 

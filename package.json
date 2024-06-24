@@ -1,7 +1,7 @@
 {
-  "name": "temptatai_mvp",
+  "name": "gptorganized_mvp",
   "version": "1.0.0",
-  "description": "gptorganized test app",
+  "description": "gptorganized mvp app",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -36,10 +36,7 @@
     "nodemailer": "^6.9.9",
     "nodemon": "^2.0.22",
     "openai": "^4.49.1",
-    "printful-js": "^1.0.3",
-    "printful-request": "^2.0.0",
     "rand-token": "^1.0.1",
-    "re-resizable": "^6.9.11",
     "serve": "^11.3.2",
     "sharp": "^0.33.4",
     "states-us": "^1.0.3",
