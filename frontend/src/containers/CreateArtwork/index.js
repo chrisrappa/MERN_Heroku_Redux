@@ -6,7 +6,6 @@ import React,
 } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { 
-  // useMediaQuery,
   Dialog,
   IconButton,
   DialogContent,
@@ -16,23 +15,11 @@ import {
   Typography,
   CircularProgress,
 } from '@mui/material';
-import { 
-  artGeneratorDispatcher, 
-  saveArtworkToState, 
-  // submitUpscaleJob,
-  // artworkVariationDispatcher, 
-} from '../../actions/artworkProcessing.js';
-import { 
-  // saveArtworkInUserProfile, 
-  subtractCreditsFromUser 
-} from '../../actions/userActions.js';
 import CloseIcon from '@mui/icons-material/Close';
 import { useTheme } from '@emotion/react';
 import ArtworkDisplay from '../../components/ArtworkDisplay/index.js';
 import ImageIcon from '@mui/icons-material/Image';
 import { CircularLoadingContainer } from './styled.js';
-// import ArrowCircleUpOutlinedIcon from '@mui/icons-material/ArrowCircleUpOutlined';
-// import { upscaleImage } from '../../helpers/upscaleImage.js';
 
 
 function CreateArtwork({ 
@@ -88,15 +75,7 @@ function CreateArtwork({
 
   const generateArtwork = () => {
 
-    setArtworkData({...artworkData, prompt: artBasePrompt});
 
-    dispatch(artGeneratorDispatcher({
-      "prompt": optionsToCompletePrompt(),
-      "n"     : artworkData.n            ,
-      "size"  : artworkData.resolution
-    }, dispatch ));
-
-    // dispatch(subtractCreditsFromUser(userId, dispatch));
   };
 
   // Can't get this to work unfortunately, tabling for now
@@ -105,7 +84,6 @@ function CreateArtwork({
   // };
 
   const onSelect = (imageData) => {
-    dispatch(saveArtworkToState(imageData, artworkData, dispatch));
     navigate('/createTat/1');
   };
 

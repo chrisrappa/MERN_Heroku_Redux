@@ -12,8 +12,6 @@ import {
   Typography 
 } from "@mui/material";
 import { 
-  AddButtonCard, 
-  CreditAdditionButtons, 
   CreditBalanceGridContainer, 
   CreditBalanceGridItem, 
   ProfileWalletCard, 
@@ -24,7 +22,6 @@ import { useTheme } from "@emotion/react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useToast } from "../../libs/toast";
-import { purchaseCredits } from "../../actions/orderPlacementActions";
 
 export default function ProfileWallet({
   userInfo,
@@ -59,27 +56,6 @@ export default function ProfileWallet({
   };
 
   const handleClose = () => {
-    setAddCreditsOpen(false);
-  };
-
-  const handleChargePaymentMethod = () => {
-    dispatch(
-      purchaseCredits(
-        selectedPaymentMethod , 
-        creditPurchaseAmount  , 
-        creditCost            ,
-        userInfo?.user_id     ,
-        dispatch
-      )
-    )
-    .then((response) => {
-      if(response === 200){
-        toast.success('Credits Added!');
-      } else {
-        toast.error(response);
-      }
-    })
-
     setAddCreditsOpen(false);
   };
 
@@ -184,8 +160,6 @@ export default function ProfileWallet({
           </Button>
           <Button 
             color='secondary' 
-            onClick={handleChargePaymentMethod}
-            disabled={!selectedPaymentMethod}
             variant="contained"
           >
             Confirm

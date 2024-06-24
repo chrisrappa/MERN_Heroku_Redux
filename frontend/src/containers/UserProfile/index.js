@@ -20,9 +20,6 @@ import {
   deleteCardInfo        , 
   deleteShippingInfo    , 
 } from '../../actions/userActions';
-import {
-  getUserOrdersInfo
-} from '../../actions/orderPlacementActions';
 import { useTheme } from '@emotion/react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '../../libs/toast';

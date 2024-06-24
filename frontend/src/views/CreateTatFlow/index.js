@@ -2,14 +2,11 @@ import React, { useEffect, useMemo, useState } from 'react'
 import ContentArea from '../../components/ContentArea';
 import Box from '@mui/material/Box';
 import CreateArtwork from '../../containers/CreateArtwork';
-// import ImagePlacementEditor from '../../containers/ImagePlacementEditor';
-import ReviewOrder from '../../containers/ReviewOrder';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ParentContainer } from './styled';
 import { Grid, Typography } from '@mui/material';
 import CreationSteps from '../../components/CreationSteps';
 import { useSelector } from 'react-redux';
-import SelectProduct from '../../containers/SelectProduct';
 
 
 function CreateTatFlow() {
@@ -80,26 +77,6 @@ function CreateTatFlow() {
                 artworkData={artworkData}
                 setArtworkData={setArtworkData}
               />
-            } 
-          />
-        )
-      case 1: 
-        return (
-          <ContentArea 
-            currentStepComponent={
-              <SelectProduct 
-                navigate={navigate} 
-                artworkData={artworkData}
-                setArtworkData={setArtworkData}
-              />
-            } 
-          />
-        )
-      case 2: 
-        return (
-          <ContentArea 
-            currentStepComponent={
-              <ReviewOrder />
             } 
           />
         )
