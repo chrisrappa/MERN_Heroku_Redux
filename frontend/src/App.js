@@ -52,7 +52,7 @@ function App() {
 
             <Route path       = "/support"       element  = { <Support />       } />
             <Route path       = "/profile/:slug" element  = { <Profile />       } />
-            <Route path       = "/createTat/:id" element  = { <CreateTatFlow /> } />            
+            <Route path       = "/app-home" element  = { <CreateTatFlow /> } />            
             <Route path       = "/admin"         element  = { <Admin /> } />            
           </Route>        
         </Routes>

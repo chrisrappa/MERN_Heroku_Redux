@@ -45,23 +45,6 @@ function CreateTatFlow() {
   }, [artworkGenerationURL]);
 
   useMemo(() => {
-    switch(stepParseInt){
-      case 0: 
-        setActiveStep(0);
-      break;
-      case 1: 
-        setActiveStep(1);
-      break;
-      case 2: 
-        setActiveStep(2);
-      break;
-      default: navigate('/createTat/0');
-    }
-
-  // eslint-disable-next-line
-  }, [stepValue]);
-
-  useMemo(() => {
     localStorage.setItem('artworkData', artworkData);
   }, [artworkData])
 

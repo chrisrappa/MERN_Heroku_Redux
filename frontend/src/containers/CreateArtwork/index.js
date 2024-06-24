@@ -84,7 +84,7 @@ function CreateArtwork({
   // };
 
   const onSelect = (imageData) => {
-    navigate('/createTat/1');
+    // navigate('/createTat/1');
   };
 
   const onZoom = (imageData) => {

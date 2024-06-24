@@ -59,7 +59,7 @@ function Landing() {
 
   useMemo(() => {
     if(user){
-      navigate('/createTat/0')
+      navigate('/app-home')
     }
   }, [user, navigate]);
 
