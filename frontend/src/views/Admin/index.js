@@ -1,25 +1,15 @@
-import { Box, Grid, Paper } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { Box } from '@mui/material'
 import ContentArea from '../../components/ContentArea'
 import AdminPanel from '../../containers/AdminPanel';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllUserOrders } from '../../actions/adminActions';
 
 function Admin() {
 
   const dispatch = useDispatch();
 
   const allUserOrders = useSelector((state) => state?.adminData?.allUserOrders);
-
-  console.log('all user orders', allUserOrders)
-
-  const [ordersData, setOrdersData] = useState([]);
-
-  useEffect(() => {
-    dispatch(getAllUserOrders(null, dispatch));
-  }, [])
   
-
   const handleFetchOrders = () => {
 
   };

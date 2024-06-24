@@ -7,7 +7,7 @@ import {
 import { AppContainer } from './styled';
 import Profile from './views/Profile';
 import CreateTatFlow from './views/CreateTatFlow';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import AppNavigation from './components/AppNavigation';
 import { CssBaseline } from '@mui/material';
 import { useEffect, useState } from 'react';
@@ -16,8 +16,6 @@ import Landing from './views/Landing';
 import Admin from './views/Admin';
 
 function App() {
-
-  const dispatch = useDispatch();
 
   const [authCheckCompleted, setAuthCheckCompleted] = useState(false);
 

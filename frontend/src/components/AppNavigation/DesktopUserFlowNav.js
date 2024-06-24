@@ -11,7 +11,6 @@ import {
   ListItemIcon,
   ListItemText,
   Tooltip,
-  useTheme,
 } from "@mui/material";
 import { navigationOptions } from "./menuOptions";
 import { Link, useNavigate } from 'react-router-dom';
@@ -30,7 +29,6 @@ function DesktopUserFlowNav({
 }){
 
   const navigate = useNavigate();
-  const theme = useTheme();
 
   const cartItems = useSelector((state) => state?.cartInfo.cartItems);
 
