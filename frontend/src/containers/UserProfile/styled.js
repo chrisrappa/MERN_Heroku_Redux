@@ -11,13 +11,14 @@ const MainContentArea = styled(Paper)(({theme}) => ({
   width: '100%',
   marginTop: '1rem',
   flexWrap: 'wrap',
-  maxHeight: '80dvh'
+  maxHeight: '80dvh',
+  backgroundColor: 'transparent'
 }));
 
 const AvatarContainer = styled(Grid)(({theme}) => ({
   ...theme.flexBox.justifyStartAlignCenter,
   flex: '0.5',
-  backgroundColor: `${theme.palette.whites.main}`,
+  // backgroundColor: `${theme.palette.whites.main}`,
   padding: '0!important',
   width: '100%',
 }));
@@ -29,7 +30,7 @@ const TabsAndPanelsParentBox = styled(Box)(({theme}) => ({
   flex: '4', 
   height: '100%',
   overflow: 'auto',
-  backgroundColor: `${theme.palette.whites.main}`
+  // backgroundColor: `${theme.palette.whites.main}`
 }));
 
 const MainContentAreaChildGrid = styled(Grid)(() => ({

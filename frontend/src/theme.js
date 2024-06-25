@@ -39,7 +39,8 @@ const primaryInsetBoxShadow = 'inset 0px 3.5px 10px rgba(56,56,55, 0.5)';
 
 // JSX Component Colors
 const mainBackground = `${grayFull}`;
-const navbarBackground = `rgb(44,44,44)`
+const navbarBackground = `rgb(44,44,44)`;
+const contentAreadBackground = '#333333';
 
 // Fonts
 
@@ -143,6 +144,9 @@ const theme = createTheme({
     mobileTopToolbar: {
       height: '5vh'
     }
+  },
+  contentArea: {
+    backgroundColor: contentAreadBackground
   },
   components: {
     MuiCssBaseline: {

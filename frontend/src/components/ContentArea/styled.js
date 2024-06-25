@@ -10,7 +10,7 @@ const MainContentArea = styled(Grid)(({theme}) => ({
   maxWidth: '85dvw',
   borderRadius: '1.5rem',
   flex: '6',
-  backgroundColor: `${theme.palette.whites.main}`,
+  backgroundColor: `${theme.contentArea.backgroundColor}`,
   [theme.breakpoints.down('sm')]: {
     maxWidth: '95vw',
   },

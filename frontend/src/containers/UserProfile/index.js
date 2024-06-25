@@ -22,7 +22,7 @@ function UserProfile() {
       <MainContentAreaChildGrid container >
         <AvatarContainer container>
           <Avatar sx={{margin: '1rem'}} alt={userInfo?.name} src={userInfo?.picture} />
-          <Typography>{userInfo?.name}</Typography>
+          <Typography sx={{color: 'white'}}>{userInfo?.name}</Typography>
         </AvatarContainer>
         <TabsAndPanelsParentBox>
 
