@@ -59,7 +59,8 @@ function MobileDrawer({
 								primary={option?.name} 
 								sx={{ 
 									opacity: open ? 1 : 0, 
-									fontFamily: `${theme.typography.secondary.fontFamily}` 
+									fontFamily: `${theme.typography.secondary.fontFamily}`, 
+									color: '#C6C6C6'
 								}} 
 							/>
 						</ListItemButton>
@@ -98,7 +99,8 @@ function MobileDrawer({
 									primary='Admin'
 									sx={{ 
 										opacity: open ? 1 : 0, 
-										fontFamily: `${theme.typography.secondary.fontFamily}` 
+										fontFamily: `${theme.typography.secondary.fontFamily}`,
+										color: '#C6C6C6'
 									}} 
 								/>
 							</ListItemButton>

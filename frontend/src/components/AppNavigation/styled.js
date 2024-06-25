@@ -119,21 +119,29 @@ const DesktopAppBar = styled(MuiAppBar, {
   }),
 }));
 
-const DesktopDrawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
+const DesktopDrawer = styled(MuiDrawer, { 
+  shouldForwardProp: (prop) => prop !== 'open' && prop !== 'bgColor'
+})(({ theme, open, bgColor }) => ({
     width: drawerWidth,
     flexShrink: 0,
     display: { xs: 'none', sm: 'flex' },
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
     zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: bgColor || theme.palette.background.default,
     ...(open && {
       ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
+      '& .MuiDrawer-paper': {
+        ...openedMixin(theme),
+        backgroundColor: bgColor || theme.palette.background.default, // Apply bgColor to paper when open
+      },
     }),
     ...(!open && {
       ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
+      '& .MuiDrawer-paper': {
+        ...closedMixin(theme),
+        backgroundColor: bgColor || theme.palette.background.default, // Apply bgColor to paper when closed
+      },
     }),
   }),
 );
@@ -151,7 +159,7 @@ const MobileTopToolbar = styled(Toolbar)(({theme}) => ({
   width: '100%', 
   justifyContent: 'space-between', 
   alignItems: 'center',
-  backgroundColor: `${theme.palette.whites.main}`,
+  backgroundColor: `${theme.toolbars.mobileNav.navbarBackground}`,
   [theme.breakpoints.down('md')]: {
     maxHeight: `${theme.toolbars.mobileTopToolbar.height}`
   }

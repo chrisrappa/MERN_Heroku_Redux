@@ -166,7 +166,7 @@ function AppNavigation(props) {
 									display: isMobile ? 'block' : 'none',
 								}}
 							>
-								<MenuIcon />
+								<MenuIcon sx={{color: '#C6C6C6'}} />
 							</IconButton>
 						</Grid>
 						<Grid 
@@ -211,7 +211,7 @@ function AppNavigation(props) {
 					}}
 					sx={{
 						display: { xs: 'block', sm: 'block', md: 'block', lg: 'none' },
-						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, backgroundColor: `${theme.toolbars.mobileNav.backgroundColor}` },
 					}}
 				>
 					<DrawerHeader>
@@ -232,7 +232,7 @@ function AppNavigation(props) {
 									>
 										<Avatar alt={userInfo?.name?.split('')[0]} src={userInfo?.picture} />
 									</UserProfilePictureButton>
-									<Typography>{userInfo?.name?.split(' ')[0]}</Typography>
+									<Typography sx={{color: '#C6C6C6'}}>{userInfo?.name?.split(' ')[0]}</Typography>
 								</ListItem>
 							) : (
 								<ListItem>
@@ -243,7 +243,7 @@ function AppNavigation(props) {
 							)
 						}
 						<IconButton onClick={handleDrawerToggle}>
-							{theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+							{theme.direction === 'rtl' ? <ChevronRightIcon sx={{color: '#C6C6C6'}} /> : <ChevronLeftIcon sx={{color: '#C6C6C6'}} />}
 						</IconButton>
 					</DrawerHeader>
 					<MobileDrawer 
@@ -265,15 +265,16 @@ function AppNavigation(props) {
 						<DesktopDrawer
 							variant="permanent"
 							open={desktopDrawerOpen}
+							bgColor={`${theme.toolbars.desktopNav.backgroundColor}`}
 						>
 							<DesktopDrawerHeader>
 								{desktopDrawerOpen ? (
 										<IconButton onClick={handleDesktopDrawerClose}>
-											<ChevronLeftIcon />
+											<ChevronLeftIcon sx={{color: '#C6C6C6'}} />
 										</IconButton>
 									) : (
 										<IconButton onClick={handleDesktopDrawerOpen}>
-											<ChevronRightIcon />
+											<ChevronRightIcon sx={{color: '#C6C6C6'}} />
 										</IconButton>
 									)
 								}

@@ -4,18 +4,18 @@ import { createTheme } from '@mui/material';
 // Mains - Opacity
 const primaryLight = 'rgba(159,128,101, 0.15)'
 const primaryMedium = 'rgba(159,128,101, 0.35)'
-const primaryFull = '#9f8065';
+const primaryFull = '#C6C6C6';
 
 // Secondaries - Opacity
 const secondaryLight = 'rgba(102,161,140, 0.15)';
 const secondaryMedium = 'rgba(102,161,140, 0.35)';
-const secondaryFull = '#66a18c';
+const secondaryFull = '#4F7FB8';
 
 // White & Grays
 
 const grayLight = 'rgba(73,73,73, 0.1)';
 const grayMedium = 'rgba(73,73,73, 0.5)';
-const grayFull = 'rgba(73,73,73, 1)';
+const grayFull = 'rgba(30,30,30, 1)';
 
 const whiteLight = 'rgba(255, 255, 255, 0.1)';
 const whiteMedium = 'rgba(255, 255, 255, 0.5)';
@@ -37,12 +37,13 @@ const secondaryButtonColor = `${secondaryFull}`;
 // Box Shadows
 const primaryInsetBoxShadow = 'inset 0px 3.5px 10px rgba(56,56,55, 0.5)';
 
-// Main App Background
-const mainBackground = `${whiteFull}`;
+// JSX Component Colors
+const mainBackground = `${grayFull}`;
+const navbarBackground = `rgb(44,44,44)`
 
 // Fonts
 
-const primaryFont = `"Lemon", serif`;
+const primaryFont = `"Raleway", sans-serif`;
 const secondaryFont = "Avenir";
 const tabFont = "Avenir";
 
@@ -133,7 +134,11 @@ const theme = createTheme({
   },
   toolbars: {
     mobileNav: {
-      height: '10dvh'
+      height: '10dvh',
+      backgroundColor: navbarBackground
+    },
+    desktopNav: {
+      backgroundColor: navbarBackground
     },
     mobileTopToolbar: {
       height: '5vh'

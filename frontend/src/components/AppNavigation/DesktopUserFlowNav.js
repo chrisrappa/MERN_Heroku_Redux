@@ -98,6 +98,7 @@ function DesktopUserFlowNav({
                       sx = {{
                         opacity: open ? 1 : 0,
                         flex: open ? '2' : '0',
+                        color: '#C6C6C6'
                       }}
                     />
                 
@@ -138,7 +139,8 @@ function DesktopUserFlowNav({
                     <ListItemIcon 
                       sx={{
                         justifyContent: 'center', 
-                        width: !open && '100%'
+                        width: !open && '100%',
+                        color: '#C6C6C6'
                       }}
                     >
 
@@ -156,7 +158,6 @@ function DesktopUserFlowNav({
                 
                 </ListItemButton>
               </Tooltip>
-
             </ListItem>
 					)
 				}
@@ -186,6 +187,7 @@ function DesktopUserFlowNav({
                 sx={{ 
                   opacity: open ? 1 : 0, 
                   flex: open ? '2' : '0',
+                  color: '#C6C6C6'
                 }} 
                 component="a" 
                 href={'/profile/info'}
@@ -206,6 +208,7 @@ function DesktopUserFlowNav({
                     variant='contained'
                     color='secondary'
                     onClick={() => logout()}
+                    sx={{color: 'white'}}
                   >
                     Log Out
                   </Button>
@@ -217,7 +220,7 @@ function DesktopUserFlowNav({
                         border: '1px solid gray'
                       }}
                     >
-                      <LogoutIcon />
+                      <LogoutIcon sx={{color: '#C6C6C6'}} />
                     </IconButton>
                   </Tooltip>
                 )
