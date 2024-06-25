@@ -141,7 +141,7 @@ function AppNavigation(props) {
 				width: '5rem', 
 				display: isAuthenticated ? 'flex' : 'none',
 				backgroundColor: 'transparent',
-				marginBottom: '3rem'
+				marginBottom: '3.75rem'
 			}}
 		>
 			<AppBar position="fixed" open={open} elevation={0} sx={{backgroundColor: 'transparent'}}>
@@ -180,7 +180,7 @@ function AppNavigation(props) {
 							}}
 						>
 							<PrimaryTypography variant="h6" noWrap component="div" color="primary">
-								Temp-Tat A.I.
+								GPT Organized
 							</PrimaryTypography>
 							<Typography 
 								color={'secondary'} v
